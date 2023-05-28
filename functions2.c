@@ -43,7 +43,7 @@ int print_pointer(va_list types, char buffer[],
 		extra_a = ' ', len++;
 	index++;
 	/*return (write(1, &buffer[b], BUFF_SIZE - b - 1));*/
-	return (write_, pointer(buffer, index, len, width,
+	return (write_pointer(buffer, index, len, width,
 				flags, pad, extra_a, pad_start));
 }
 /************************* PRINT NON PRINTABLE *************************/

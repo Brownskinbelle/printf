@@ -15,8 +15,9 @@ int print_char(va_list types, char buffer[], int flags,
 {
 	char a  = va_arg(types, int);
 
-	return (handle_write_char(c, buffer, flags, width, precision, size));
+	return (handle_write_char(a, buffer, flags, width, precision, size));
 }
+
 /************************* PRINT A STRING *************************/
 /**
  * print_string - Prints a string
@@ -55,7 +56,7 @@ int print_string(va_list types, char buffer[], int flags,
 	{
 		if (flags & F_MINUS)
 		{
-			write(1, &str[0], len)
+			write(1, &str[0], len);
 				for (i = width - len; i > 0; i--)
 					write(1, " ", 1);
 			return (width);
@@ -72,7 +73,7 @@ int print_string(va_list types, char buffer[], int flags,
 }
 /************************** PRINT PERCENT SIGN *************************/
 /**
- * print_string - Prints a string
+ * print_percent - Prints a string
  * @types: List a of arguments
  * @buffer: Buffer array to handle print
  * @flags:  Calculates active flags
@@ -81,12 +82,10 @@ int print_string(va_list types, char buffer[], int flags,
  * @size: Size specifier
  * Return: Number of chars printed
  */
-int print_string(va_list types, char buffer[], int flags,
+int print_percent(va_list types, char buffer[], int flags,
 		int width, int precision, int size)
 {
-	int len = 0, a;
-	char *str = va_arg(types, char *);
-
+	UNUSED(types);
 	UNUSED(buffer);
 	UNUSED(flags);
 	UNUSED(width);
